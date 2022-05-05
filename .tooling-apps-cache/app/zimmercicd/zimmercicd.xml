@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="b0ecb8bf-9c3e-4f41-b568-263b1a170b0b" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="zimmercicdFlow" doc:id="2b7ce700-1cec-4643-8190-685846639783" >
+		<http:listener doc:name="Listener" doc:id="471884a0-400c-47a2-b070-ca19fc1fb815" config-ref="HTTP_Listener_config" path="/ZimmerCICD"/>
+		<set-payload value='#["This is a successful response"]' doc:name="Set Payload" doc:id="c3c93d5a-2bcd-4b13-b546-b3634e81b8ee" />
+	</flow>
+</mule>
